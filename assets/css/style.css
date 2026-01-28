@@ -221,26 +221,26 @@ body {
 .arrow.left { left: 0; }
 .arrow.right { right: 0; }
 
-#foot-1 {
+#check {
     background: #d1ceceb4;
     justify-content: flex-start;
     display: flex;
     align-items: center;
 }
 
-#foot-1 div {
+#check div {
     margin-left: 0px; 
     margin-right: auto;  
     text-align: left;
     width: 500px;
 }
 
-#foot-1 img {
+#check img {
     max-height: 280px; 
 }
 
 /* Footer for all the pages */
-#foot-2 {
+#footer {
     color: #ffffff;
     background: #30261C;
     padding: 40px 240px;
@@ -249,19 +249,24 @@ body {
     align-items: top;
 }
 
-#foot-2 div{
+#footer div{
     align-items: center;
     gap: 10px; 
 }
 
-#foot-2 .col {
+#footer .col {
     display: flex;
     flex-direction: column;
     gap: 10px; 
 }
 
-#foot-2 .col h3 {
+#footer .col h3 {
     margin-bottom: 10px;
+}
+
+#footer .social-media{
+    display: flex; 
+    gap: 15px;
 }
 
 /* About Page*/
