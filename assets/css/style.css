@@ -2,6 +2,7 @@ body {
     margin: 0;
 }
 
+/* utalities*/
 .btn {
     color: #ffffff;
     border-radius: 10px;
@@ -9,6 +10,16 @@ body {
     padding: 5px 15px;
     font-size: 15px;
 }
+
+.text-prim {
+    color: #deb887da;
+}
+
+.weight{
+    font-weight: bold;
+}
+
+/**/
 
 .btn:hover {
     background-color: #cebda683;
@@ -18,7 +29,7 @@ body {
     width: 100%;
     aspect-ratio: 16 / 9;
     min-height: 100vh;
-    background-image: url(images/Background.png);
+    background-image: url(../images/Background.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -95,7 +106,7 @@ body {
 }
 
 .show {
-    background-color: F5F5F5;
+    background-color: #F5F5F5;
     width: 100%;
     padding: 15px 300px;
     align-items: center;
@@ -239,7 +250,6 @@ body {
 .foot-2 div{
     align-items: center;
     gap: 10px; 
-    
 }
 
 .col {
@@ -250,4 +260,20 @@ body {
 
 .col h3 {
     margin-bottom: 10px;
+}
+
+.about-content {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    display: flex;
+    background-color: #F5F5F5;
+}
+
+.about-content img{
+    display: block;
+}
+
+.about-content div{
+    padding: 70px 30px;
+    color: #30261C;
 }
