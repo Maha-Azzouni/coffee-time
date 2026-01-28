@@ -6,7 +6,7 @@ body {
 .btn {
     color: #ffffff;
     border-radius: 10px;
-    background-color: #30261C;
+    background-color: #3a322f;
     padding: 5px 15px;
     font-size: 15px;
 }
@@ -16,7 +16,7 @@ body {
 }
 
 .text-prim {
-    color: #deb887c3;
+    color: #3a322f;
     font-size: 18px;
 }
 
@@ -29,7 +29,7 @@ body {
     width: 100%;
     aspect-ratio: 16 / 9;
     min-height: 100vh;
-    background-image: url(../images/Background.jpg);
+    background-image: url(../images/Background.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -41,7 +41,7 @@ body {
     align-items: center;
     padding: 14px 25px;
     font-size: 18px;
-    background: #30261C;
+    background-color: #3a322f;
 }
 
 .header img {
@@ -61,49 +61,10 @@ body {
 }
 
 .header-links a {
-    color: #ffffff;
-    padding: 5px 15px;
+    color: #fff;
+    font-weight: bolder;
+    padding: 5px 15px ;
     text-decoration: none;
-}
-
-/* Home Page */
-.landing-page {
-    font-weight: bold;
-    color:  #30261C;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 5px 220px;
-    display: flex;
-    font-size: 25px;
-    font-style: italic;
-}
-
-.title{
-    padding: 100px 400px 40px 450px;
-    font-weight: bold;
-    font-style: italic;
-    color:  #30261C;
-    font-size: 30px;
-    align-items: center;
-}
-
-.landing-page>div {
-    text-align: left;
-    max-width: 600px;
-}
-
-.landing-page-search input {
-    border-radius: 10px;
-    width: 300px;  
-    height: 40px;
-    padding: 0 10px;
-    font-size: 15px;
-}
-
-.landing-page-search button {
-    height: 40px;
-    padding: 0 20px;
-    font-size: 15px;
 }
 
 .show {
@@ -132,7 +93,7 @@ body {
 }
 
 .special {
-    background-color: #ddc1a7;
+    background-color: #cebfaf;
     box-sizing: border-box;
      width: 100%;
     padding: 10px 0; 
@@ -242,7 +203,7 @@ body {
 /* Footer for all the pages */
 #footer {
     color: #ffffff;
-    background: #30261C;
+    background: #3a322f;
     padding: 40px 240px;
     justify-content: space-between;
     display: flex;
@@ -274,7 +235,7 @@ body {
     margin-bottom: 0;
     padding-bottom: 0;
     display: flex;
-    background-color: #d1ceceb4;
+    background-color: #cebfaf;
 }
 
 #about img{
@@ -283,19 +244,19 @@ body {
 
 #about div{
     padding: 70px 30px;
-    color: #30261C;
+    color: #3a322f;
 }
 
 /* Menu Page*/
 #menu {
-    background-color: #fff;
+    background-color: #cebfaf;
     padding: 0 0 20px 0;
 }
 
 .heading{
     text-align: center;
     padding: 50px 0 0 0;
-    color: #30261C;
+    color: #3a322f;
 }
 
 #menu .row {
@@ -314,6 +275,7 @@ body {
     border: 1px solid #ddd;
     padding: 18px 20px;
     align-items: center;
+    background-color: #d1ceceb4;
 }
 
 #menu .row .col .item img {
@@ -329,13 +291,13 @@ body {
 #menu .row .col .item .details h3 {
     font-size: 20px;
     margin-bottom: 15px;
-    color: #30261C;
+    color: #3a322f;
 }
 
 #menu .row .col .item  .details p{
     font-size: 15px;
     line-height: 1.6;
-    color: #30261C;
+    color: #3a322f;
 }
 
 #menu .row .col .item .price{
@@ -352,7 +314,7 @@ body {
 
 /* Contact Page*/
 #contact {
-    background-color: #d1ceceb4;
+    background-color: #cebfaf;
 }
 
 #contact .row{
