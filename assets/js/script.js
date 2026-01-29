@@ -4,6 +4,17 @@ const username = document.getElementById("username");
 const email = document.getElementById("email");
 const password = document.getElementById("password");
 
+function requireAuth() {
+  const isLoggedIn = localStorage.getItem("loggedIn") === "true";
+
+  const publicPages = ["index.html", "sign-in.html", "sign-up.html"];
+  const currentPage = window.location.pathname.split("/").pop();
+
+  if (!isLoggedIn && !publicPages.includes(currentPage)) {
+    window.location.href = "index.html";
+  }
+}
+
 // showError
 function showError(input, message) {
   const signForm = input.parentElement;
@@ -44,7 +55,9 @@ if (formin) {
     } else {
       e.preventDefault();
       localStorage.setItem("loggedIn", "true");
+      localStorage.setItem("currentUser", username.value.trim());
       window.location.href = "index.html";
+
     }
   });
 }
@@ -82,12 +95,15 @@ if (formup) {
     } else {
       e.preventDefault();
       localStorage.setItem("loggedIn", "true");
+      localStorage.setItem("currentUser", username.value.trim());
       window.location.href = "index.html";
+
     }
   });
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+  requireAuth();
 
   const signInBtn = document.getElementById("signInBtn");
   const logoutBtn = document.getElementById("logoutBtn");
@@ -142,7 +158,8 @@ document.querySelectorAll('.carousel-container').forEach(container => {
 });
 
 function addToCartAndGo(name, price) {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const cartKey = getCartKey();
+  let cart = JSON.parse(localStorage.getItem(cartKey)) || [];
 
   const existingItem = cart.find(item => item.name === name);
 
@@ -156,16 +173,22 @@ function addToCartAndGo(name, price) {
     });
   }
 
-  localStorage.setItem("cart", JSON.stringify(cart));
-
-  // Redirect to order page
+  localStorage.setItem(cartKey, JSON.stringify(cart));
   window.location.href = "order.html";
 }
 
-const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+const cartKey = getCartKey();
+const cart = JSON.parse(localStorage.getItem(cartKey)) || [];
+
 
 const cartBody = document.getElementById("cart-body");
 const emptyCart = document.getElementById("empty-cart");
+
+function getCartKey() {
+  const user = localStorage.getItem("currentUser");
+  return `cart_${user}`;
+}
 
 function renderCart() {
   cartBody.innerHTML = "";
