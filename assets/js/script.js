@@ -159,6 +159,13 @@ document.querySelectorAll('.carousel-container').forEach(container => {
 
 function addToCartAndGo(name, price) {
   const cartKey = getCartKey();
+
+  if (!cartKey) {
+    alert("You must be logged in to add items to your order.");
+    window.location.href = "sign-in.html";
+    return;
+  }
+
   let cart = JSON.parse(localStorage.getItem(cartKey)) || [];
 
   const existingItem = cart.find(item => item.name === name);
@@ -177,18 +184,17 @@ function addToCartAndGo(name, price) {
   window.location.href = "order.html";
 }
 
+function getCartKey() {
+  const user = localStorage.getItem("currentUser");
+  if (!user) return null; // user not logged in
+  return `cart_${user}`;
+}
 
 const cartKey = getCartKey();
-const cart = JSON.parse(localStorage.getItem(cartKey)) || [];
-
+const cart = cartKey ? JSON.parse(localStorage.getItem(cartKey)) || [] : [];
 
 const cartBody = document.getElementById("cart-body");
 const emptyCart = document.getElementById("empty-cart");
-
-function getCartKey() {
-  const user = localStorage.getItem("currentUser");
-  return `cart_${user}`;
-}
 
 function renderCart() {
   cartBody.innerHTML = "";
