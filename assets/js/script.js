@@ -1,8 +1,8 @@
-const formin= document.getElementById("sign-in");
-const formup= document.getElementById("sign-up");
-const username= document.getElementById("username");
-const email= document.getElementById("email");
-const password= document.getElementById("password");
+const formin = document.getElementById("sign-in");
+const formup = document.getElementById("sign-up");
+const username = document.getElementById("username");
+const email = document.getElementById("email");
+const password = document.getElementById("password");
 
 // showError
 function showError(input, message) {
@@ -19,72 +19,72 @@ function showSuccess(input) {
   signForm.className = "sign-form";
 }
 
-if(formin){
-formin.addEventListener("submit", function (e) {
+if (formin) {
+  formin.addEventListener("submit", function (e) {
     let isValid = true;
 
-  //Username Validation
-  if (username.value.trim() === "") {
-    showError(username, "Username is required");
-    isValid = false;
-  } else {
-    showSuccess(username);
-  }
-
-  //Password Validation
-  if (password.value.trim() === "") {
-    showError(password, "Password is required");
-    isValid = false;
-  } else {
-    showSuccess(password);
-  }
-
-  if(isValid === false){
-    e.preventDefault();
-  }else {
-      e.preventDefault(); 
-      localStorage.setItem("loggedIn", "true");
-      window.location.href = "index.html";
+    //Username Validation
+    if (username.value.trim() === "") {
+      showError(username, "Username is required");
+      isValid = false;
+    } else {
+      showSuccess(username);
     }
-});
-}
 
-if(formup){
-formup.addEventListener("submit", function (e) {
-    let isValid = true;
+    //Password Validation
+    if (password.value.trim() === "") {
+      showError(password, "Password is required");
+      isValid = false;
+    } else {
+      showSuccess(password);
+    }
 
-  //Username Validation
-  if (username.value.trim() === "") {
-    showError(username, "Username is required");
-    isValid = false;
-  } else {
-    showSuccess(username);
-  }
-
-  //Email Validation
-  if (email.value.trim() === "") {
-    showError(email, "Email is required");
-    isValid = false;
-  } else {
-    showSuccess(email);
-  }
-
-  //Password Validation
-  if (password.value.trim() === "") {
-    showError(password, "Password is required");
-    isValid = false;
-  } else {
-    showSuccess(password);
-  }
-
-  if(isValid === false){
-    e.preventDefault();
-  }else {
+    if (isValid === false) {
+      e.preventDefault();
+    } else {
       e.preventDefault();
       localStorage.setItem("loggedIn", "true");
       window.location.href = "index.html";
     }
-});
+  });
+}
+
+if (formup) {
+  formup.addEventListener("submit", function (e) {
+    let isValid = true;
+
+    //Username Validation
+    if (username.value.trim() === "") {
+      showError(username, "Username is required");
+      isValid = false;
+    } else {
+      showSuccess(username);
+    }
+
+    //Email Validation
+    if (email.value.trim() === "") {
+      showError(email, "Email is required");
+      isValid = false;
+    } else {
+      showSuccess(email);
+    }
+
+    //Password Validation
+    if (password.value.trim() === "") {
+      showError(password, "Password is required");
+      isValid = false;
+    } else {
+      showSuccess(password);
+    }
+
+    if (isValid === false) {
+      e.preventDefault();
+    } else {
+      e.preventDefault();
+      localStorage.setItem("loggedIn", "true");
+      window.location.href = "index.html";
+    }
+  });
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -125,18 +125,71 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // To make a scroll for the image
 document.querySelectorAll('.carousel-container').forEach(container => {
-    const carousel = container.querySelector('.carousel');
-    const leftArrow = container.querySelector('.arrow.left');
-    const rightArrow = container.querySelector('.arrow.right');
+  const carousel = container.querySelector('.carousel');
+  const leftArrow = container.querySelector('.arrow.left');
+  const rightArrow = container.querySelector('.arrow.right');
 
-    const card = carousel.querySelector('.card');
-    const scrollAmount = card.offsetWidth + 20; // card width + gap
+  const card = carousel.querySelector('.card');
+  const scrollAmount = card.offsetWidth + 20; // card width + gap
 
-    rightArrow.addEventListener('click', () => {
-        carousel.scrollLeft += scrollAmount;
-    });
+  rightArrow.addEventListener('click', () => {
+    carousel.scrollLeft += scrollAmount;
+  });
 
-    leftArrow.addEventListener('click', () => {
-        carousel.scrollLeft -= scrollAmount;
-    });
+  leftArrow.addEventListener('click', () => {
+    carousel.scrollLeft -= scrollAmount;
+  });
 });
+
+function addToCartAndGo(name, price) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  const existingItem = cart.find(item => item.name === name);
+
+  if (existingItem) {
+    existingItem.quantity += 1;
+  } else {
+    cart.push({
+      name,
+      price,
+      quantity: 1
+    });
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  // Redirect to order page
+  window.location.href = "order.html";
+}
+
+const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+const cartBody = document.getElementById("cart-body");
+const emptyCart = document.getElementById("empty-cart");
+
+function renderCart() {
+  cartBody.innerHTML = "";
+
+  if (cart.length === 0) {
+    emptyCart.style.display = "block";
+    return;
+  }
+
+  emptyCart.style.display = "none";
+
+  cart.forEach(item => {
+    const row = document.createElement("div");
+    row.className = "cart-item";
+
+    row.innerHTML = `
+        <span>${item.name}</span>
+        <span>${item.quantity}</span>
+        <span>$${item.price.toFixed(2)}</span>
+        <span>$${(item.quantity * item.price).toFixed(2)}</span>
+      `;
+
+    cartBody.appendChild(row);
+  });
+}
+
+renderCart();

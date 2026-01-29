@@ -12,22 +12,37 @@
     <!-- Header -->
     <div class="header">
         <div class="logo">
-            <img src="assets/images/logo.png" width="60px" />
+            <img src="assets/images/logo.png" width="60px" alt="image"/>
             <span class="coffee-text">Coffee Time</span>
         </div>
         <div class="header-links">
             <a href="index.html">Home</a>
-                <a href="menu.html">Menu</a>
-                <a href="order.html">Orders</a>
-                <a href="about.html">About</a>
-                <a href="book.html">Book</a>
+            <a href="menu.html">Menu</a>
+            <a href="order.html">Orders</a>
+            <a href="about.html">About</a>
+            <a href="book.html">Book</a>
             <button id="signInBtn" class="btn">Sign In</button>
             <button id="logoutBtn" class="btn" hidden>Log Out</button>
         </div>
     </div>
 
     <!-- Body -->
-    
+    <div class="cart-container">
+        <div class="cart-header">
+            <span>Product</span>
+            <span>Quantity</span>
+            <span>Unit Price</span>
+            <span>Total Price</span>
+        </div>
+
+        <div id="cart-body"></div>
+
+        <div id="empty-cart" class="empty-cart">
+            Your cart is empty 🛒
+        </div>
+    </div>
+
+
 
     <!-- footer -->
     <footer id="footer">

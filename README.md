@@ -1,10 +1,16 @@
-# Coffee Time Website
-A simple coffee shop website built using HTML ,CSS and JavaScript.
+# ☕ Coffee Time Website
+A simple coffee shop website that allows users to browse products, add items to their order, and view them on an order (cart) page.
 
-## Technologies
+## 🚀 Technologies Used
 - HTML
 - CSS
-- JS
+- JavaScript
 
-## Author
+## ✨ Features
+- Browse coffee and dessert products
+- Add items to the order
+- View cart with quantity and total price
+- Simple and clean user interface
+
+## 👤 Author
 Maha Azzouni
