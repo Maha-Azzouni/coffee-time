@@ -48,10 +48,15 @@ html {
     margin-bottom: 30px;
 }
 
+.login-box .sign-form  {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
 
-.login-box input {
+.login-box .sign-form input {
     position: relative;
-    margin-bottom: 25px;
+    margin-bottom: 0px;
     width: 100%;
     padding: 10px;
     background: transparent;
@@ -59,6 +64,23 @@ html {
     border-bottom: 1px solid white;
     outline: none;
     color: white;
+}
+
+.login-box .sign-form span {
+    visibility: hidden;
+    display: block;
+    color: #ff0000;
+    text-align: left;
+    font-size: 12px;
+}
+
+/* Error */
+.login-box .sign-form.error span {
+    visibility: visible;
+}
+
+.login-box .sign-form.error input {
+    border-color: #ff0000;
 }
 
 /* button */

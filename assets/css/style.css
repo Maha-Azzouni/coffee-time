@@ -368,3 +368,24 @@ body {
     width: 100%;
     height: 100%;
 }
+
+/* Our Story page */
+#our-story {
+    display: flex;
+    height: 700px;
+    background-color: #d1ceceb4;
+}
+#our-story .story{
+    background-color: #cebfaf;
+    padding: 15px 40px 0 40px;
+    align-items: center;
+    margin: 80px 40px;
+}
+
+#our-story .story p{
+    font-size: 19px;
+}
+
+#our-story .story h3{
+    font-size: 21px;
+}
