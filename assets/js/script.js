@@ -42,8 +42,7 @@ formin.addEventListener("submit", function (e) {
   if(isValid === false){
     e.preventDefault();
   }else {
-      // ✅ تسجيل الدخول نجح
-      e.preventDefault(); // نمنع الانتقال الحقيقي
+      e.preventDefault(); 
       localStorage.setItem("loggedIn", "true");
       window.location.href = "index.html";
     }
@@ -81,8 +80,7 @@ formup.addEventListener("submit", function (e) {
   if(isValid === false){
     e.preventDefault();
   }else {
-      // ✅ تسجيل الدخول نجح
-      e.preventDefault(); // نمنع الانتقال الحقيقي
+      e.preventDefault();
       localStorage.setItem("loggedIn", "true");
       window.location.href = "index.html";
     }
@@ -108,19 +106,37 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // عند تحميل الصفحة
+  // When upload
   updateAuthUI();
 
-  // تسجيل خروج
+  // Logout
   logoutBtn.addEventListener("click", function () {
     localStorage.removeItem("loggedIn");
     updateAuthUI();
     window.location.href = "index.html";
   });
 
-  // زر تسجيل الدخول
+  // Sign in button
   signInBtn.addEventListener("click", function () {
     window.location.href = "sign-in.html";
   });
 
+});
+
+// To make a scroll for the image
+document.querySelectorAll('.carousel-container').forEach(container => {
+    const carousel = container.querySelector('.carousel');
+    const leftArrow = container.querySelector('.arrow.left');
+    const rightArrow = container.querySelector('.arrow.right');
+
+    const card = carousel.querySelector('.card');
+    const scrollAmount = card.offsetWidth + 20; // card width + gap
+
+    rightArrow.addEventListener('click', () => {
+        carousel.scrollLeft += scrollAmount;
+    });
+
+    leftArrow.addEventListener('click', () => {
+        carousel.scrollLeft -= scrollAmount;
+    });
 });

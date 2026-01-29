@@ -95,7 +95,7 @@ body {
 .special {
     background-color: #cebfaf;
     box-sizing: border-box;
-     width: 100%;
+    width: 100%;
     padding: 10px 0; 
 }
 
@@ -118,12 +118,28 @@ body {
 
 .carousel {
   display: flex;
-  justify-content: center; /* center cards */
+  justify-content: flex-start; /* center cards */
   overflow-x: auto;
   scroll-behavior: smooth;
   gap: 20px; /* space between cards */
   padding: 10px 0;
+  scrollbar-width: none;        /* Firefox */
+  -ms-overflow-style: none; 
 }
+
+.carousel::-webkit-scrollbar {
+  display: none;                /* Chrome / Safari */
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.carousel-container {
+  overflow: hidden;
+}
+
 
 .card {
   flex: 0 0 auto;
