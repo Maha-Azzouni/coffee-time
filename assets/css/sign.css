@@ -28,9 +28,30 @@ html {
     align-items: center;
 }
 
+@media (max-width: 1024px) {
+    .page {
+        padding-left: 60px;
+    }
+}
+
+@media (max-width: 600px) {
+    .page {
+        justify-content: center;
+        padding-left: 0;
+        padding: 20px;
+    }
+
+    .login-box {
+        width: 100%;
+        max-width: 350px;
+        padding: 30px 20px;
+    }
+}
+
 /* glass box */
 .login-box {
-    width: 380px;
+    width: 100%;
+    max-width: 380px;
     padding: 40px;
     border-radius: 16px;
 
